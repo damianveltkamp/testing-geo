@@ -11,7 +11,8 @@ export default async function Home() {
       Homepage
       <ul>
         <li>{ip}</li>
-        <li>{countryBasedOnIP.country_name}</li>
+        <li>Geo data gotten from api.iplocation api {countryBasedOnIP.json()}</li>
+        <li>Country gotten from vercels geo {country}</li>
       </ul>
     </main>
   );
