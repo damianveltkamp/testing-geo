@@ -1,16 +1,18 @@
 import styles from "./page.module.css";
 import { cookies } from "next/headers";
 
-export default function Home() {
+export default async function Home() {
   const ip = cookies().get('x-ip-testing')?.value;
   const country = cookies().get('x-country')?.value;
+  const countryBasedOnIP = await fetch(`https://api.iplocation.net/?ip=62.163.213.53`)
 
   return (
     <main className={styles.main}>
       Homepage
-      <h1>      {ip}
-      </h1>
-      <p>{country}</p>
+      <ul>
+        <li>{ip}</li>
+        <li>{countryBasedOnIP.country_name}</li>
+      </ul>
     </main>
   );
 }
